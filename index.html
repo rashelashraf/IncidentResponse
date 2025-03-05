@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Incident Response Plan Template</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="text"], input[type="date"], input[type="email"], input[type="datetime-local"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .add-row-btn {
+            margin-bottom: 10px;
+        }
+        .delete-btn {
+            background-color: #e74c3c;
+        }
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+        .print-btn {
+            background-color: #2ecc71;
+            margin-top: 20px;
+        }
+        .print-btn:hover {
+            background-color: #27ae60;
+        }
+        .nav-tabs {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            flex-wrap: wrap;
+        }
+        .nav-tabs li {
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        .nav-tabs button {
+            background-color: #f8f9fa;
+            color: #495057;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+        }
+        .nav-tabs button.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .save-load-container {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+        @media print {
+            button, .add-row-btn, .delete-btn, .nav-tabs, .save-load-container {
+                display: none;
+            }
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                page-break-inside: avoid;
+            }
+            .tab-content {
+                display: block;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            .nav-tabs li {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cybersecurity Incident Response Plan Template</h1>
+    
+    <div class="save-load-container">
+        <button id="saveBtn">Save Template Data</button>
+        <button id="loadBtn">Load Template Data</button>
+        <button id="exportBtn" class="print-btn">Export as PDF/Print</button>
+    </div>
+
+    <ul class="nav-tabs">
+        <li><button class="tab-button active" data-tab="tab1">Authority & Document Control</button></li>
+        <li><button class="tab-button" data-tab="tab2">Purpose & Standards</button></li>
+        <li><button class="tab-button" data-tab="tab3">IR Process</button></li>
+        <li><button class="tab-button" data-tab="tab4">Roles & Responsibilities</button></li>
+        <li><button class="tab-button" data-tab="tab5">Communication</button></li>
+        <li><button class="tab-button" data-tab="tab6">Procedures & Arrangements</button></li>
+        <li><button class="tab-button" data-tab="tab7">Notification & Reporting</button></li>
+        <li><button class="tab-button" data-tab="tab8">Detection & Analysis</button></li>
+        <li><button class="tab-button" data-tab="tab9">Containment & Remediation</button></li>
+    </ul>
+
+    <!-- Tab 1: Authority and Document Control -->
+    <div id="tab1" class="tab-content active">
+        <div class="section">
+            <h2>1. Authority and Review</h2>
+            
+            <h3>1.1 Document Control and Review</h3>
+            <table id="documentControlTable">
+                <tr>
+                    <th>Criteria</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Author</td>
+                    <td><input type="text" name="author"></td>
+                </tr>
+                <tr>
+                    <td>Owner</td>
+                    <td><input type="text" name="owner"></td>
+                </tr>
+                <tr>
+                    <td>Date Created</td>
+                    <td><input type="date" name="dateCreated"></td>
+                </tr>
+                <tr>
+                    <td>Last Reviewed By</td>
+                    <td><input type="text" name="lastReviewedBy"></td>
+                </tr>
+                <tr>
+                    <td>Last Date Reviewed</td>
+                    <td><input type="date" name="lastDateReviewed"></td>
+                </tr>
+                <tr>
+                    <td>Endorsed By</td>
+                    <td><input type="text" name="endorsedBy"></td>
+                </tr>
+                <tr>
+                    <td>Date Endorsed</td>
+                    <td><input type="date" name="dateEndorsed"></td>
+                </tr>
+                <tr>
+                    <td>Next Review Due Date</td>
+                    <td><input type="date" name="nextReviewDate"></td>
+                </tr>
+            </table>
+            
+            <h3>1.2 Version Control</h3>
+            <button class="add-row-btn" id="addVersionRow">Add Version</button>
+            <table id="versionControlTable">
+                <thead>
+                    <tr>
+                        <th>Version</th>
+                        <th>Date Approved</th>
+                        <th>Approved By</th>
+                        <th>Description of Change</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="version" placeholder="e.g., 1.0"></td>
+                        <td><input type="date" name="dateApproved"></td>
+                        <td><input type="text" name="approvedBy"></td>
+                        <td><input type="text" name="changeDescription" placeholder="Initial document"></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 2: Purpose and Standards -->
+    <div id="tab2" class="tab-content">
+        <div class="section">
+            <h2>2. Purpose and Objectives</h2>
+            <h3>2.1 Purpose</h3>
+            <textarea name="purpose" placeholder="State the purpose of the Cybersecurity Incident Response Plan..."></textarea>
+            
+            <h3>2.2 Objectives</h3>
+            <textarea name="objectives" placeholder="List the key objectives of this CIRP..."></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>3. Standards and Frameworks</h2>
+            <textarea name="standards" placeholder="Identify frameworks (e.g., NIST CSF, ISO 27001) and explain how these frameworks align with the CIRP..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tab 3: Incident Response Process -->
+    <div id="tab3" class="tab-content">
+        <div class="section">
+            <h2>4. High-Level Incident Response Process</h2>
+            
+            <h3>4.1 Detection and Reporting</h3>
+            <textarea name="detectionReporting" placeholder="Describe the process for detecting and reporting security incidents..."></textarea>
+            
+            <h3>4.2 Investigation and Analysis</h3>
+            <textarea name="investigationAnalysis" placeholder="Outline the process for investigating and analyzing reported incidents..."></textarea>
+            
+            <h3>4.3 Containment and Eradication</h3>
+            <textarea name="containmentEradication" placeholder="Detail the approach for containing and eradicating security threats..."></textarea>
+            
+            <h3>4.4 Recovery and Post-Incident Review</h3>
+            <textarea name="recoveryReview" placeholder="Describe the process for recovery operations and conducting post-incident reviews..."></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>5. Common Security Incidents and Response</h2>
+            
+            <h3>5.1 Common Threat Vectors</h3>
+            <textarea name="threatVectors" placeholder="List and describe common threat vectors that may impact the organization..."></textarea>
+            
+            <h3>5.2 Incident Types and Response</h3>
+            <button class="add-row-btn" id="addIncidentTypeRow">Add Incident Type</button>
+            <table id="incidentTypeTable">
+                <thead>
+                    <tr>
+                        <th>Type/Description</th>
+                        <th>Response</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="incidentType" placeholder="e.g., Malware Infection"></td>
+                        <td><textarea name="incidentResponse" placeholder="Describe the standard response procedure..."></textarea></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 4: Roles and Responsibilities -->
+    <div id="tab4" class="tab-content">
+        <div class="section">
+            <h2>6. Roles and Responsibilities</h2>
+            
+            <h3>6.1 Points of Contact</h3>
+            <button class="add-row-btn" id="addPocRow">Add Point of Contact</button>
+            <table id="pocTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Hours of Operation</th>
+                        <th>Contact Details</th>
+                        <th>Role Title</th>
+                        <th>Responsibilities</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="pocName"></td>
+                        <td><input type="text" name="pocHours" placeholder="e.g., 9AM-5PM EST"></td>
+                        <td><input type="email" name="pocContact" placeholder="Email or phone"></td>
+                        <td><input type="text" name="pocRole"></td>
+                        <td><textarea name="pocResponsibilities"></textarea></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>6.2 Cyber Incident Response Team (CIRT)</h3>
+            <button class="add-row-btn" id="addCirtRow">Add CIRT Member</button>
+            <table id="cirtTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Organization</th>
+                        <th>Contact Details</th>
+                        <th>CIRT Role Title</th>
+                        <th>CIRT Responsibilities</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="cirtName"></td>
+                        <td><input type="text" name="cirtOrg"></td>
+                        <td><input type="email" name="cirtContact" placeholder="Email or phone"></td>
+                        <td><input type="text" name="cirtRole"></td>
+                        <td><textarea name="cirtResponsibilities"></textarea></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>6.3 Senior Executive Management Team</h3>
+            <button class="add-row-btn" id="addSemtRow">Add Executive Team Member</button>
+            <table id="semtTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Contact Details</th>
+                        <th>Title</th>
+                        <th>SEMT Role</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="semtName"></td>
+                        <td><input type="email" name="semtContact" placeholder="Email or phone"></td>
+                        <td><input type="text" name="semtTitle"></td>
+                        <td><input type="text" name="semtRole"></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>6.4 Roles and Relationships</h3>
+            <textarea name="rolesRelationships" placeholder="Describe how different teams and roles interact during an incident..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tab 5: Communication -->
+    <div id="tab5" class="tab-content">
+        <div class="section">
+            <h2>7. Communication</h2>
+            
+            <h3>7.1 Internal Communication</h3>
+            <textarea name="internalComm" placeholder="Describe protocols for internal communication during an incident..."></textarea>
+            
+            <h3>7.2 External Communication</h3>
+            <textarea name="externalComm" placeholder="Outline protocols for external communication during an incident, including media relations..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tab 6: Procedures and Arrangements -->
+    <div id="tab6" class="tab-content">
+        <div class="section">
+            <h2>8. Supporting Procedures and Playbooks</h2>
+            
+            <h3>8.1 Supporting Standard Operating Procedures</h3>
+            <textarea name="sops" placeholder="List and describe supporting SOPs that relate to incident response..."></textarea>
+            
+            <h3>8.2 Supporting Playbooks</h3>
+            <textarea name="playbooks" placeholder="List and describe specific playbooks for different types of incidents..."></textarea>
+        </div>
+        
+        <div class="section">
+            <h2>9. Sector, Jurisdictional, and National Incident Response Arrangements</h2>
+            
+            <h3>9.1 Sector Arrangements</h3>
+            <textarea name="sectorArrangements" placeholder="Describe sector-specific arrangements and information sharing mechanisms..."></textarea>
+            
+            <h3>9.2 Jurisdictional Arrangements</h3>
+            <textarea name="jurisdictionalArrangements" placeholder="Outline jurisdictional requirements and arrangements..."></textarea>
+            
+            <h3>9.3 National Arrangements</h3>
+            <textarea name="nationalArrangements" placeholder="Describe national-level incident response mechanisms and requirements..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tab 7: Notification and Reporting -->
+    <div id="tab7" class="tab-content">
+        <div class="section">
+            <h2>10. Incident Notification and Reporting</h2>
+            
+            <button class="add-row-btn" id="addNotificationRow">Add Notification Requirement</button>
+            <table id="notificationTable">
+                <thead>
+                    <tr>
+                        <th>Incident Type/Threshold</th>
+                        <th>Organization/Agency to Receive Notification</th>
+                        <th>Contact Details</th>
+                        <th>Agency Information</th>
+                        <th>Person Responsible</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="incidentThreshold"></td>
+                        <td><input type="text" name="agencyName"></td>
+                        <td><input type="text" name="agencyContact"></td>
+                        <td><input type="text" name="agencyInfo"></td>
+                        <td><input type="text" name="personResponsible"></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>10.1 Legal and Regulatory Requirements</h3>
+            <textarea name="legalRequirements" placeholder="Describe legal and regulatory requirements for incident reporting..."></textarea>
+            
+            <h3>10.2 Insurance</h3>
+            <textarea name="insurance" placeholder="Outline cyber insurance requirements and notification procedures..."></textarea>
+        </div>
+    </div>
+
+    <!-- Tab 8: Detection and Analysis -->
+    <div id="tab8" class="tab-content">
+        <div class="section">
+            <h2>11. Detection, Investigation, Analysis, and Activation</h2>
+            
+            <h3>11.1 Incident Classification</h3>
+            <button class="add-row-btn" id="addClassificationRow">Add Classification</button>
+            <table id="classificationTable">
+                <thead>
+                    <tr>
+                        <th>Incident Classification</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="classification" placeholder="e.g., Critical, High, Medium, Low"></td>
+                        <td><textarea name="classificationDesc" placeholder="Description of this classification level..."></textarea></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>11.2 CIRT Activation</h3>
+            <textarea name="cirtActivation" placeholder="Describe the process for activating the Cyber Incident Response Team..."></textarea>
+            
+            <h3>11.3 Investigation Questions</h3>
+            <textarea name="investigationQuestions" placeholder="List key questions to be addressed during incident investigation..."></textarea>
+            
+            <h3>11.4 Escalation and De-escalation</h3>
+            <button class="add-row-btn" id="addEscalationRow">Add Escalation Procedure</button>
+            <table id="escalationTable">
+                <thead>
+                    <tr>
+                        <th>Incident Classification</th>
+                        <th>Action</th>
+                        <th>Triggers</th>
+                        <th>Minimum Level Authority</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="escClassification"></td>
+                        <td><input type="text" name="escAction"></td>
+                        <td><input type="text" name="escTriggers"></td>
+                        <td><input type="text" name="escAuthority"></td>
+                        <td><button class="delete-btn">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tab 9: Containment and Remediation -->
+    <div id="tab9" class="tab-content">
+        <div class="section">
+            <h2>12. Containment, Evidence Collection, and Remediation</h2>
+            
+            <h3>12.1 Containment</h3>
+            <textarea name="containment" placeholder="Describe containment strategies and procedures..."></textarea>
+            
+            <h3>12.2 Documentation</h3>
+            <table id="documentationTable">
+                <tr>
+                    <th>Criteria</th>
+                    <th>Information</th>
+                </tr>
+                <tr>
+                    <td>Date and Time Incident Detected</td>
+                    <td><input type="datetime-local" name="detectionTime"></td>
+                </tr>
+                <tr>
+                    <td>Current Status</td>
+                    <td>
+                        <select name="currentStatus">
+                            <option value="New">New</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Incident Type</td>
+                    <td><input type="text" name="docIncidentType"></td>
+                </tr>
+                <tr>
+                    <td>Incident Classification</td>
+                    <td><input type="text" name="docIncidentClassification"></td>
+                </tr>
+                <tr>
+                    <td>Scope</td>
+                    <td><textarea name="scope"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Impact</td>
+                    <td><textarea name="impact"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Severity</td>
+                    <td>
+                        <select name="severity">
+                            <option value="Critical">Critical</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Notifications</td>
+                    <td>
+                        <select name="notifications">
+                            <option value="Actioned">Actioned</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Assistance Required</td>
+                    <td><textarea name="assistance"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Actions Taken to Resolve Incident</td>
+                    <td><textarea name="actionsTaken"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Additional Notes</td>
+                    <td><textarea name="additionalNotes"></textarea></td>
+                </tr>
+                <tr>
+                    <td>Contact Details for Incident Manager</td>
+                    <td><input type="text" name="incidentManagerContact"></td>
+                </tr>
+                <tr>
+                    <td>Date and Time of Next Update</td>
+                    <td><input type="datetime-local" name="nextUpdateTime"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                
+                // Deactivate all buttons
+                document.querySelectorAll('.tab-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Activate clicked button and corresponding tab
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Function to add a new row to a table
+        function addTableRow(tableId, deleteRowHandler) {
+            const table = document.getElementById(tableId);
+            const newRow = table.querySelector('tbody tr').cloneNode(true);
+            
+            // Clear input values in the new row
+            newRow.querySelectorAll('input, textarea').forEach(input => {
+                input.value = '';
+            });
+            
+            // Add delete functionality to the delete button
+            const deleteBtn = newRow.querySelector('.delete-btn');
+            deleteBtn.addEventListener('click', deleteRowHandler);
+            
+            table.querySelector('tbody').appendChild(newRow);
+        }
+        
+        // Function to delete a row
+        function deleteRow(event) {
+            const tbody = event.target.closest('tbody');
+            if (tbody.querySelectorAll('tr').length > 1) {
+                event.target.closest('tr').remove();
+            } else {
+                alert("Cannot delete the last row.");
+            }
+        }
+        
+        // Add event listeners for adding rows to tables
+        document.getElementById('addVersionRow').addEventListener('click', () => {
+            addTableRow('versionControlTable', deleteRow);
+        });
+        
+        document.getElementById('addIncidentTypeRow').addEventListener('click', () => {
+            addTableRow('incidentTypeTable', deleteRow);
+        });
+        
+        document.getElementById('addPocRow').addEventListener('click', () => {
+            addTableRow('pocTable', deleteRow);
+        });
+        
+        document.getElementById('addCirtRow').addEventListener('click', () => {
+            addTableRow('cirtTable', deleteRow);
+        });
+        
+        document.getElementById('addSemtRow').addEventListener('click', () => {
+            addTableRow('semtTable', deleteRow);
+        });
+        
+        document.getElementById('addNotificationRow').addEventListener('click', () => {
+            addTableRow('notificationTable', deleteRow);
+        });
+        
+        document.getElementById('addClassificationRow').addEventListener('click', () => {
+            addTableRow('classificationTable', deleteRow);
+        });
+        
+        document.getElementById('addEscalationRow').addEventListener('click', () => {
+            addTableRow('escalationTable', deleteRow);
+        });
+        
+        // Add delete functionality to initial delete buttons
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', deleteRow);
+        });
+        
+        // Save functionality
+        document.getElementById('saveBtn').addEventListener('click', () => {
+            const formData = {};
+            
+            // Collect input values
+            document.querySelectorAll('input, textarea, select').forEach(input => {
+                if (input.name) {
+                    formData[input.name] = input.value;
+                }
+            });
+            
+            // Handle tables with multiple rows
+            const tables = ['versionControlTable', 'incidentTypeTable', 'pocTable', 'cirtTable', 'semtTable', 
+                           'notificationTable', 'classificationTable', 'escalationTable'];
+            
+            tables.forEach(tableId => {
+                const table = document.getElementById(tableId);
+                formData[tableId] = [];
+                
+                table.querySelectorAll('tbody tr').forEach(row => {
+                    const rowData = {};
+                    row.querySelectorAll('input, textarea, select').forEach(input => {
+                        if (input.name) {
+                            rowData[input.name] = input.value;
+                        }
+                    });
+                    formData[tableId].push(rowData);
+                });
+            });
+            
+            // Save to local storage
+            localStorage.setItem('cirpData', JSON.stringify(formData));
+            alert('Data saved successfully!');
+        });
+        
+        // Load functionality
+        document.getElementById('loadBtn').addEventListener('click', () => {
+            const savedData = localStorage.getItem('cirpData');
+            
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                
+                // Populate simple inputs
+                Object.keys(formData).forEach(key => {
+                    if (!Array.isArray(formData[key])) {
+                        const input = document.querySelector(`[name="${key}"]`);
+                        if (input) {
+                            input.value = formData[key];
+                        }
+                    }
+                });
+                
+                // Handle tables with multiple rows
+                const tables = ['versionControlTable', 'incidentTypeTable', 'pocTable', 'cirtTable', 'semtTable', 
+                               'notificationTable', 'classificationTable', 'escalationTable'];
+                
+                tables.forEach(tableId => {
+                    if (formData[tableId] && formData[tableId].length > 0) {
+                        const table = document.getElementById(tableId);
+                        const tbody = table.querySelector('tbody');
+                        
+                        // Clear existing rows except the first
+                        const rows = tbody.querySelectorAll('tr');
+                        for (let i = rows.length - 1; i > 0; i--) {
+                            rows[i].remove();
+                        }
+                        
+                        // Populate first row
+                        const firstRow = tbody.querySelector('tr');
+                        Object.keys(formData[tableId][0]).forEach(key => {
+                            const input = firstRow.querySelector(`[name="${key}"]`);
+                            if (input) {
+                                input.value = formData[tableId][0][key];
+                            }
+                        });
+                        
+                        // Add additional rows
+                        for (let i = 1; i < formData[tableId].length; i++) {
+                            const newRow = firstRow.cloneNode(true);
+                            
+                            // Set values
+                            Object.keys(formData[tableId][i]).forEach(key => {
+                                const input = newRow.querySelector(`[name="${key}"]`);
+                                if (input) {
+                                    input.value = formData[tableId][i][key];
+                                }
+                            });
+                            
+                            // Add delete functionality
+                            const deleteBtn = newRow.querySelector('.delete-btn');
+                            deleteBtn.addEventListener('click', deleteRow);
+                            
+                            tbody.appendChild(newRow);
+                        }
+                    }
+                });
+                alert('Data loaded successfully!');
+            } else {
+                alert('No saved data found.');
+            }
+        });
+        
+        // Export/Print functionality
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            window.print();
+        });
+    </script>
+</body>
+</html>
